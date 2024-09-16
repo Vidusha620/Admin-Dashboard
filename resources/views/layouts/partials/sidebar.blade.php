@@ -3,15 +3,15 @@
                         <div class="nav">
 
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="{{ route('admin.dashboard')}}">
+                            <a class="nav-link" href="{{ url('dashboard')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
 
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="{{ url('admin/category')}}">
+                            <a class="nav-link" href="{{ url('notes')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Category
+                                Notes
                             </a>
 
                             <div class="sb-sidenav-menu-heading">Interface</div>
@@ -22,8 +22,8 @@
                             </a>
                             <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('admin/products/create')}}">Add Products</a>
-                                    <a class="nav-link" href="{{ url('admin/products')}}">View Products</a>
+                                    <a class="nav-link" href="{{ url('products/create')}}">Add Products</a>
+                                    <a class="nav-link" href="{{ url('products')}}">View Products</a>
                                 </nav>
                             </div>
                             
@@ -36,8 +36,8 @@
                             </a>
                             <div class="collapse" id="collapsePosts" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('admin/posts/create')}}">Add Posts</a>
-                                    <a class="nav-link" href="{{ url('admin/posts')}}">View Posts</a>
+                                    <a class="nav-link" href="{{ url('posts/create')}}">Add Posts</a>
+                                    <a class="nav-link" href="{{ url('posts')}}">View Posts</a>
                                 </nav>
                             </div>
                             
