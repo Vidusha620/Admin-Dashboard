@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('notes.admin')
 
 @section('content')
 
@@ -17,19 +17,24 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
+                        <th width="80px">No</th>
                             <th>Title</th>
                             <th>Content</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($notes as $note )
-                        <tr>
+                        <tr><td>{{ ++$i }}</td>
                             <td>{{$note->title}}</td>
                             <td>{{$note->content}}</td>
                             <td>
-                                <a href="{{route('notes.edit',$note->title)}}" class="btn btn-success">Edit</a>
-                                <a href="{{route('notes.show',$note->title)}}" class="btn btn-info">Show</a>
-                                <a href="{{route('notes.destroy',$note->title)}}" class="btn btn-danger">Delete</a>
+                                <a href="{{route('notes.edit',$note->id)}}" class="btn btn-success">Edit</a>
+                                <a href="{{route('notes.show',$note->id)}}" class="btn btn-info">Show</a>
+                                <form action="{{ route('notes.destroy', $note->id)}}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
 
 
                             </td>

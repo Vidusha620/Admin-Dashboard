@@ -1,4 +1,4 @@
-@extends('notes.layout')
+@extends('notes.admin')
 
 @section('content')
 
@@ -13,14 +13,20 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong> <br/>
-                    {{ $note->name }}
+                    <label>Title</label> 
+                    <p>
+                    {{ $note->title }}
+                    </p>
+                    
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                 <div class="form-group">
-                    <strong>contents:</strong> <br/>
+                    <label>contents:</label> 
+                    <p>
                     {{ $note->content }}
+                    </p>
+                    
                 </div>
             </div>
         </div>

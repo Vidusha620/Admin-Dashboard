@@ -18,10 +18,10 @@ class NoteController extends Controller
     public function index(): View
     {
         // Fetch the notes with pagination (5 notes per page)
-        $notes = Note::latest()->paginate(10);
+        $notes = Note::latest()->paginate(3);
 
         // Pass notes to the view with pagination data
-        return view('notes.index',['notes'=> $notes]);
+        return view('notes.index', compact('notes'))->with('i', (request()->input('page',1) -1)*3);
 
     }
 
@@ -60,8 +60,9 @@ class NoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Note $note): View
+    public function edit($id): View
     {
+        $note = Note::findOrFail($id);
         // Pass the note to the edit form
         return view('notes.edit', compact('note'));  
     }
@@ -69,14 +70,9 @@ class NoteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(NoteUpdateRequest $request, Note $note)
+    public function update(NoteUpdateRequest $request, Note $note): RedirectResponse
     {
-        $request->validate([
-            'title'=> 'required|string|max:255',
-            'content'=>'required|string|max:255',
-            ]);
-    
-            $note->update($request->all());
+        $note->update($request->validated());
     
             return redirect('/notes')->with('success','Note Updated Successfully');
     }
